@@ -28,6 +28,13 @@ body {
 .slider img {
   width: 100%;
   height: auto;
+  object-fit: cover;
+  filter: blur(2px);
+  transition: filter 0.3s ease;
+}
+
+.slider img.active {
+  filter: blur(0);
 }
 
 button {
