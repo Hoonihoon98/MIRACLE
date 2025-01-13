@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Gallery</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 슬라이드</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 슬라이드 바와 화살표 -->
-  <div class="slider-container">
-    <div class="arrow left-arrow" id="left-arrow">&#60;</div>
-    <div class="slider">
-      <div class="images-container">
-        <!-- 이미지들이 들어갈 부분 -->
-      </div>
+
+    <div id="slider-container">
+        <button id="prev-btn" class="arrow-btn">&#60;</button>
+        
+        <div id="slider">
+            <!-- 이미지들이 여기 들어갈 예정 -->
+        </div>
+        
+        <button id="next-btn" class="arrow-btn">&#62;</button>
     </div>
-    <div class="arrow right-arrow" id="right-arrow">&#62;</div>
-  </div>
+    
+    <div id="slider-bar">
+        <div id="slider-bar-track"></div>
+    </div>
 
-  <!-- 슬라이드 바 -->
-  <div class="slider-bar">
-    <input type="range" id="slider-bar" min="1" max="365" value="1" />
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
