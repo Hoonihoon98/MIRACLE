@@ -1,29 +1,29 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
 .slider-container {
     position: relative;
-    width: 80%; /* 원하는 크기로 조정 */
-    max-width: 800px;
-    text-align: center;
+    width: 80%;
+    max-width: 1200px;
+    overflow: hidden;
 }
 
-.slider-image {
+.slider {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.slide {
     width: 100%;
-    max-width: 100%;
-    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    height: auto;
+    object-fit: cover;
 }
 
 .arrow {
@@ -33,16 +33,24 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
+    font-size: 2rem;
     padding: 10px;
     cursor: pointer;
-    font-size: 24px;
-    border-radius: 50%;
+    z-index: 10;
 }
 
-.left {
+.left-arrow {
     left: 10px;
 }
 
-.right {
+.right-arrow {
     right: 10px;
+}
+
+img {
+    width: 80%;  /* 화면 너비의 80% 크기로 이미지 크기 설정 */
+    max-width: 1000px; /* 최대 너비 1000px로 제한 (필요에 따라 변경) */
+    height: auto; /* 비율에 맞게 높이 조정 */
+    margin: 0 auto; /* 이미지가 중앙에 위치하도록 설정 */
+    display: block; /* block 요소로 만들어서 margin이 제대로 적용되게 함 */
 }
