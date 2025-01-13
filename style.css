@@ -1,56 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .slider-container {
-    position: relative;
-    width: 80%;
-    max-width: 1200px;
-    overflow: hidden;
+  position: relative;
+  width: 80%;
+  max-width: 1920px;
+  overflow: hidden;
 }
 
 .slider {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
-.slide {
+.slider img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  color: black;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.indicator-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: gray;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: black;
+}
+
+.slider-container .prev,
+.slider-container .next {
+  font-size: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .slider-container {
     width: 100%;
-    height: auto;
-    object-fit: cover;
-}
+  }
 
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.left-arrow {
-    left: 10px;
-}
-
-.right-arrow {
-    right: 10px;
-}
-
-img {
-    width: 80%;  /* 화면 너비의 80% 크기로 이미지 크기 설정 */
-    max-width: 1000px; /* 최대 너비 1000px로 제한 (필요에 따라 변경) */
-    height: auto; /* 비율에 맞게 높이 조정 */
-    margin: 0 auto; /* 이미지가 중앙에 위치하도록 설정 */
-    display: block; /* block 요소로 만들어서 margin이 제대로 적용되게 함 */
+  .slider img {
+    width: 100%;
+  }
 }
