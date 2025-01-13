@@ -11,6 +11,7 @@ body {
 #slider-container {
     position: relative;
     width: 80%;
+    height: 60%;
     overflow: hidden;
 }
 
@@ -22,42 +23,4 @@ body {
 #slider img {
     width: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease, filter 0.5s ease;
-}
-
-.arrow-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 30px;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-#prev-btn {
-    left: 10px;
-}
-
-#next-btn {
-    right: 10px;
-}
-
-#slider-bar {
-    margin-top: 20px;
-    position: relative;
-    width: 80%;
-    height: 10px;
-    background-color: #ddd;
-    border-radius: 5px;
-}
-
-#slider-bar-track {
-    position: absolute;
-    height: 100%;
-    background-color: #333;
-    width: 0%;
-    border-radius: 5px;
 }
