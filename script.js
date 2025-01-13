@@ -1,51 +1,61 @@
-// 이미지 파일 경로 배열
+// 이미지 파일 배열 생성
 const images = [];
-const totalImages = 365;
+const totalImages = 365; // 총 이미지 수
 
+// 이미지 파일 경로 설정
 for (let i = 1; i <= totalImages; i++) {
-  images.push(`images/miracle (${i}).jpg`);
+    images.push(`images/miracle (${i}).jpg`);
 }
 
+// 슬라이더 요소들
+const slider = document.getElementById("slider");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+const sliderBarTrack = document.getElementById("slider-bar-track");
+
+// 현재 이미지 인덱스
 let currentIndex = 0;
-const imagesContainer = document.querySelector('.images-container');
 
-// 이미지 표시 함수
-function updateImages() {
-  imagesContainer.innerHTML = ''; // 기존 이미지 삭제
+// 이미지 로드 함수
+function loadImages() {
+    // 기존 이미지를 초기화
+    slider.innerHTML = '';
 
-  images.forEach((image, index) => {
-    const img = document.createElement('img');
-    img.src = image;
-    img.classList.add('image');
-    img.classList.add(index === currentIndex ? 'active' : 'inactive');
-    imagesContainer.appendChild(img);
-  });
+    // 현재 이미지 3개만 보여주기
+    for (let i = currentIndex; i < currentIndex + 3; i++) {
+        if (i < totalImages) {
+            const img = document.createElement("img");
+            img.src = images[i];
+            slider.appendChild(img);
+        }
+    }
 }
 
-// 좌우 화살표 클릭 이벤트
-document.getElementById('left-arrow').addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-  } else {
-    currentIndex = totalImages - 1; // 마지막 이미지로 돌아가기
-  }
-  updateImages();
+// 화살표 클릭 이벤트 처리
+prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        loadImages();
+        updateSliderBar();
+    }
 });
 
-document.getElementById('right-arrow').addEventListener('click', () => {
-  if (currentIndex < totalImages - 1) {
-    currentIndex++;
-  } else {
-    currentIndex = 0; // 첫 번째 이미지로 돌아가기
-  }
-  updateImages();
+nextBtn.addEventListener("click", () => {
+    if (currentIndex < totalImages - 3) {
+        currentIndex++;
+        loadImages();
+        updateSliderBar();
+    }
 });
 
-// 슬라이드 바 클릭 이벤트
-document.getElementById('slider-bar').addEventListener('input', (e) => {
-  currentIndex = e.target.value - 1; // 슬라이드 바에서 선택한 이미지로 이동
-  updateImages();
-});
+// 슬라이드 바 업데이트 함수
+function updateSliderBar() {
+    const sliderWidth = slider.offsetWidth;
+    const totalSliderWidth = slider.scrollWidth;
+    const percentage = (currentIndex / (totalImages - 3)) * 100;
+    sliderBarTrack.style.width = `${percentage}%`;
+}
 
-// 초기 이미지 업데이트
-updateImages();
+// 초기 로딩
+loadImages();
+updateSliderBar();
