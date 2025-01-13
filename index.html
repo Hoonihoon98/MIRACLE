@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이미지 슬라이더</title>
+    <title>이미지 슬라이드</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="slider-container">
-        <button class="prev" id="prev">&#8592;</button> <!-- 좌측 화살표 -->
-        
+        <button class="arrow left-arrow" id="prev">&#8249;</button>
         <div class="slider">
-            <!-- 이미지들이 여기서 동적으로 추가됩니다 -->
+            <img class="slide" src="images/image1.jpg" alt="Image 1">
+            <img class="slide" src="images/image2.jpg" alt="Image 2">
+            <img class="slide" src="images/image3.jpg" alt="Image 3">
+            <!-- 더 많은 이미지들 추가 -->
         </div>
-
-        <button class="next" id="next">&#8594;</button> <!-- 우측 화살표 -->
+        <button class="arrow right-arrow" id="next">&#8250;</button>
     </div>
 
     <script src="script.js"></script>
