@@ -2,24 +2,44 @@
 const images = [];
 const totalImages = 365; // 총 이미지 수
 
-// 이미지 파일 경로 설정
+// 1번부터 365번까지의 이미지 파일을 배열에 추가
 for (let i = 1; i <= totalImages; i++) {
-    images.push(`images/miracle (${i}).jpg`);
+    images.push(`images/miracle (${i}).jpg`);  // 이미지 파일 경로 패턴 (괄호와 공백 포함)
 }
+
+let currentIndex = 0; // 현재 보여주는 이미지의 인덱스
 
 // 슬라이더 요소
-const slider = document.getElementById("slider");
+const slider = document.querySelector('.slider');
 
-// 이미지 로드 함수
-function loadImages() {
-    // 기존 이미지를 초기화
+// 이미지 슬라이더 동적으로 추가
+function updateSlider() {
+    // 슬라이더 내용 초기화
     slider.innerHTML = '';
 
-    // 1개의 이미지만 보여주기 (기본적으로 하나씩만 보여줄 때)
-    const img = document.createElement("img");
-    img.src = images[0];
-    slider.appendChild(img);
+    // 현재 인덱스에서 5개의 이미지를 보여줄 예시
+    for (let i = currentIndex; i < currentIndex + 5 && i < images.length; i++) {
+        const img = document.createElement('img');
+        img.src = images[i];
+        slider.appendChild(img);
+    }
 }
 
-// 초기 로딩
-loadImages();
+// 좌측 화살표 클릭 시 동작
+document.getElementById('prev').addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+    }
+    updateSlider();
+});
+
+// 우측 화살표 클릭 시 동작
+document.getElementById('next').addEventListener('click', () => {
+    if (currentIndex + 5 < images.length) {
+        currentIndex++;
+    }
+    updateSlider();
+});
+
+// 첫 번째 슬라이드를 초기화
+updateSlider();
