@@ -1,45 +1,51 @@
-// 이미지 파일 배열 생성
+// 이미지 파일 경로 배열
 const images = [];
-const totalImages = 365; // 총 이미지 수
+const totalImages = 365;
 
-// 1번부터 365번까지의 이미지 파일을 배열에 추가
 for (let i = 1; i <= totalImages; i++) {
-    images.push(`images/miracle (${i}).jpg`);  // 이미지 파일 경로 패턴 (괄호와 공백 포함)
+  images.push(`images/miracle (${i}).jpg`);
 }
 
-let currentIndex = 0; // 현재 보여주는 이미지의 인덱스
+let currentIndex = 0;
+const imagesContainer = document.querySelector('.images-container');
 
-// 슬라이더 요소
-const slider = document.querySelector('.slider');
+// 이미지 표시 함수
+function updateImages() {
+  imagesContainer.innerHTML = ''; // 기존 이미지 삭제
 
-// 이미지 슬라이더 동적으로 추가
-function updateSlider() {
-    // 슬라이더 내용 초기화
-    slider.innerHTML = '';
-
-    // 현재 인덱스에서 5개의 이미지를 보여줄 예시
-    for (let i = currentIndex; i < currentIndex + 5 && i < images.length; i++) {
-        const img = document.createElement('img');
-        img.src = images[i];
-        slider.appendChild(img);
-    }
+  images.forEach((image, index) => {
+    const img = document.createElement('img');
+    img.src = image;
+    img.classList.add('image');
+    img.classList.add(index === currentIndex ? 'active' : 'inactive');
+    imagesContainer.appendChild(img);
+  });
 }
 
-// 좌측 화살표 클릭 시 동작
-document.getElementById('prev').addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-    }
-    updateSlider();
+// 좌우 화살표 클릭 이벤트
+document.getElementById('left-arrow').addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+  } else {
+    currentIndex = totalImages - 1; // 마지막 이미지로 돌아가기
+  }
+  updateImages();
 });
 
-// 우측 화살표 클릭 시 동작
-document.getElementById('next').addEventListener('click', () => {
-    if (currentIndex + 5 < images.length) {
-        currentIndex++;
-    }
-    updateSlider();
+document.getElementById('right-arrow').addEventListener('click', () => {
+  if (currentIndex < totalImages - 1) {
+    currentIndex++;
+  } else {
+    currentIndex = 0; // 첫 번째 이미지로 돌아가기
+  }
+  updateImages();
 });
 
-// 첫 번째 슬라이드를 초기화
-updateSlider();
+// 슬라이드 바 클릭 이벤트
+document.getElementById('slider-bar').addEventListener('input', (e) => {
+  currentIndex = e.target.value - 1; // 슬라이드 바에서 선택한 이미지로 이동
+  updateImages();
+});
+
+// 초기 이미지 업데이트
+updateImages();
