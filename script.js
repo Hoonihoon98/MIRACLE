@@ -1,29 +1,28 @@
-let currentIndex = 0; // 현재 이미지 인덱스
-const images = document.querySelectorAll('.slider-images img');
-const totalImages = images.length;
+let currentIndex = 1;  // 초기 이미지 번호
+const totalImages = 365; // 총 이미지 개수
+const slideImage = document.getElementById('slide-image');
 
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-
-function showImage(index) {
-    const offset = -index * 100; // 이미지의 width에 맞춰서 이동
-    document.querySelector('.slider-images').style.transform = `translateX(${offset}%)`;
-}
-
-nextButton.addEventListener('click', () => {
-    if (currentIndex < totalImages - 1) {
-        currentIndex++;
+// 이전 버튼 클릭 시 이미지 변경
+document.querySelector('.prev').addEventListener('click', () => {
+    if (currentIndex <= 1) {
+        currentIndex = totalImages;  // 마지막 이미지로 돌아감
     } else {
-        currentIndex = 0; // 마지막 이미지 후 첫 번째 이미지로 돌아가기
-    }
-    showImage(currentIndex);
-});
-
-prevButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
         currentIndex--;
-    } else {
-        currentIndex = totalImages - 1; // 첫 번째 이미지 전 후 마지막 이미지로 돌아가기
     }
-    showImage(currentIndex);
+    updateImage();
 });
+
+// 다음 버튼 클릭 시 이미지 변경
+document.querySelector('.next').addEventListener('click', () => {
+    if (currentIndex >= totalImages) {
+        currentIndex = 1;  // 첫 번째 이미지로 돌아감
+    } else {
+        currentIndex++;
+    }
+    updateImage();
+});
+
+// 이미지 업데이트 함수
+function updateImage() {
+    slideImage.src = `images/${currentIndex}.jpg`;
+}
