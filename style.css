@@ -1,48 +1,58 @@
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
 }
 
 .slider-container {
     position: relative;
-    width: 80%; /* 원하는 크기로 조정 */
-    max-width: 800px;
+    width: 80%;  /* 전체 슬라이더 크기 */
+    max-width: 1200px;
     text-align: center;
 }
 
-.slider-image {
+.slider {
     width: 100%;
-    max-width: 100%;
-    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    overflow: hidden; /* 이미지가 넘치지 않도록 */
 }
 
-.arrow {
+.slider img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background: none;  /* 배경을 none으로 설정하여 기본 배경 제거 */
     border: none;
-    padding: 10px;
     cursor: pointer;
-    font-size: 24px;
-    border-radius: 50%;
+    padding: 20px;  /* 화살표 크기 조정 */
+    z-index: 10;  /* 버튼이 이미지보다 위에 있도록 설정 */
+    width: 40px;  /* 화살표 크기 */
+    height: 40px;  /* 화살표 크기 */
 }
 
-.left {
-    left: 10px;
+.prev {
+    left: -50px;  /* 왼쪽 화살표를 이미지 밖으로 뺀다 */
+    background-image: url('left-arrow.png');  /* 왼쪽 화살표 이미지 */
+    background-size: 40px 40px;  /* 이미지 크기 */
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
 }
 
-.right {
-    right: 10px;
+.next {
+    right: -50px;  /* 오른쪽 화살표를 이미지 밖으로 뺀다 */
+    background-image: url('right-arrow.png');  /* 오른쪽 화살표 이미지 */
+    background-size: 40px 40px;  /* 이미지 크기 */
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
 }

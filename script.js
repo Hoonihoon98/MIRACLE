@@ -1,31 +1,28 @@
-let images = [];
-let totalImages = 365; // 총 이미지 수
+let currentIndex = 1;  // 초기 이미지 번호
+const totalImages = 365; // 총 이미지 개수
 
-// 이미지 파일 경로 설정 (miracle (1).jpg 부터 miracle (365).jpg까지)
-for (let i = 1; i <= totalImages; i++) {
-    images.push(`images/miracle (${i}).jpg`); // miracle (i).jpg 형식으로 이미지 배열에 추가
+// 이전 버튼 클릭 시 이미지 변경
+document.querySelector('.prev').addEventListener('click', () => {
+    if (currentIndex <= 1) {
+        currentIndex = totalImages;  // 마지막 이미지로 돌아감
+    } else {
+        currentIndex--;
+    }
+    updateImage();
+});
+
+// 다음 버튼 클릭 시 이미지 변경
+document.querySelector('.next').addEventListener('click', () => {
+    if (currentIndex >= totalImages) {
+        currentIndex = 1;  // 첫 번째 이미지로 돌아감
+    } else {
+        currentIndex++;
+    }
+    updateImage();
+});
+
+// 이미지 업데이트 함수
+function updateImage() {
+    const slideImage = document.getElementById('slide-image');
+    slideImage.src = `images/${currentIndex}.jpg`; // 이미지 변경
 }
-
-let currentIndex = 0; // 현재 표시된 이미지의 인덱스
-const sliderImage = document.getElementById("sliderImage");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-
-// 초기 이미지 설정
-sliderImage.src = images[currentIndex];
-
-// 이전 이미지로 이동하는 함수
-function showPreviousImage() {
-    currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-    sliderImage.src = images[currentIndex];
-}
-
-// 다음 이미지로 이동하는 함수
-function showNextImage() {
-    currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-    sliderImage.src = images[currentIndex];
-}
-
-// 버튼 클릭 이벤트 설정
-prevBtn.addEventListener("click", showPreviousImage);
-nextBtn.addEventListener("click", showNextImage);
