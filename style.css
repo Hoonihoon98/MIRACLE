@@ -1,87 +1,48 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: Arial, sans-serif;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .slider-container {
-  position: relative;
-  width: 80%;
-  max-width: 1920px;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh; /* 화면에 맞게 높이 조정 */
+    overflow: hidden; /* 넘치는 부분 숨기기 */
+    background-color: white;
 }
 
-.slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+.slider-images {
+    display: flex;
+    transition: transform 0.5s ease; /* 부드럽게 이미지 이동 */
 }
 
-.slider img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  filter: blur(2px);
-  transition: filter 0.3s ease;
-}
-
-.slider img.active {
-  filter: blur(0);
+.slider-images img {
+    width: 100%; /* 슬라이더 크기에 맞게 이미지 크기 조정 */
+    height: auto;
+    object-fit: cover; /* 이미지가 왜곡되지 않게 조정 */
 }
 
 button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  font-size: 2rem;
-  color: black;
-  cursor: pointer;
-  z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .prev {
-  left: 10px;
+    left: 10px;
 }
 
 .next {
-  right: 10px;
+    right: 10px;
 }
 
-.indicator-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.indicator {
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
-  border-radius: 50%;
-  background-color: gray;
-  cursor: pointer;
-}
-
-.indicator.active {
-  background-color: black;
-}
-
-@media screen and (max-width: 768px) {
-  .slider-container {
-    width: 100%;
-  }
-
-  .slider img {
-    width: 100%;
-  }
+button:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
