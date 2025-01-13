@@ -34,8 +34,8 @@ button {
     background-color: white;
     border-radius: 50%;
     border: 5px solid #888; /* 라인 두께 증가 */
-    width: 60px; /* 버튼 크기 키움 */
-    height: 60px;
+    width: 100px; /* 버튼 크기 키움 */
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,14 +50,14 @@ button:hover {
 }
 
 button .arrow {
-    font-size: 36px; /* 화살표 크기 두 배로 키움 */
+    font-size: 100px; /* 화살표 크기 두 배로 키움 */
     color: #888;
 }
 
 .prev {
-    left: -80px;  /* 화살표를 이미지에서 더 멀리 위치시킴 */
+    left: -200px;  /* 화살표를 이미지에서 더 멀리 위치시킴 */
 }
 
 .next {
-    right: -80px;  /* 화살표를 이미지에서 더 멀리 위치시킴 */
+    right: -200px;  /* 화살표를 이미지에서 더 멀리 위치시킴 */
 }
