@@ -2,6 +2,8 @@
 const totalImages = 365;
 const slider = document.querySelector('.slider');
 const indicatorContainer = document.querySelector('.indicator-container');
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
 
 let currentIndex = 0;
 
@@ -36,12 +38,12 @@ const updateSlider = () => {
 };
 
 // 화살표 버튼 클릭 이벤트
-document.querySelector('.prev').addEventListener('click', () => {
+prevButton.addEventListener('click', () => {
   currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
   updateSlider();
 });
 
-document.querySelector('.next').addEventListener('click', () => {
+nextButton.addEventListener('click', () => {
   currentIndex = (currentIndex === totalImages - 1) ? 0 : currentIndex + 1;
   updateSlider();
 });
