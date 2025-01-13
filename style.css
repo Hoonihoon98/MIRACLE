@@ -30,23 +30,29 @@ button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    font-size: 30px;
+    background: none;  /* 배경을 none으로 설정하여 기본 배경 제거 */
     border: none;
-    padding: 10px;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;  /* 화살표 크기 조정 */
+    z-index: 10;  /* 버튼이 이미지보다 위에 있도록 설정 */
+    width: 40px;  /* 화살표 크기 */
+    height: 40px;  /* 화살표 크기 */
 }
 
 .prev {
-    left: 10px;
+    left: -50px;  /* 왼쪽 화살표를 이미지 밖으로 뺀다 */
+    background-image: url('left-arrow.png');  /* 왼쪽 화살표 이미지 */
+    background-size: 40px 40px;  /* 이미지 크기 */
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
 }
 
 .next {
-    right: 10px;
+    right: -50px;  /* 오른쪽 화살표를 이미지 밖으로 뺀다 */
+    background-image: url('right-arrow.png');  /* 오른쪽 화살표 이미지 */
+    background-size: 40px 40px;  /* 이미지 크기 */
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
 }
