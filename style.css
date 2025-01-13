@@ -28,27 +28,36 @@ body {
 }
 
 button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 30px;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    border: 5px solid #888; /* 라인 두께 증가 */
+    width: 60px; /* 버튼 크기 키움 */
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 버튼에 그림자 추가 */
 }
 
 button:hover {
-  background: rgba(0, 0, 0, 0.8);
+    background-color: #f0f0f0; /* 호버 시 배경색 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* 호버 시 그림자 크기 증가 */
+}
+
+button .arrow {
+    font-size: 36px; /* 화살표 크기 두 배로 키움 */
+    color: #888;
 }
 
 .prev {
-  left: -50px;  /* 화살표를 이미지 밖으로 이동 */
+    left: -80px;  /* 화살표를 이미지에서 더 멀리 위치시킴 */
 }
 
 .next {
-  right: -50px;  /* 화살표를 이미지 밖으로 이동 */
+    right: -80px;  /* 화살표를 이미지에서 더 멀리 위치시킴 */
 }
