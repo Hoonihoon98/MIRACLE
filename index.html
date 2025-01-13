@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이미지 슬라이더</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 슬라이더</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="slider-container">
-        <!-- 왼쪽 화살표 -->
-        <button class="prev">&#60;</button>
-
-        <!-- 이미지 슬라이더 -->
-        <div class="slider">
-            <img id="slide-image" src="images/1.jpg" alt="슬라이더 이미지">
-        </div>
-
-        <!-- 오른쪽 화살표 -->
-        <button class="next">&#62;</button>
+  <div class="slider-container">
+    <div class="slider">
+      <!-- 이미지는 JS로 동적으로 생성 -->
     </div>
+    <button class="prev">&#60;</button>
+    <button class="next">&#62;</button>
+    <div class="indicator-container">
+      <!-- 인디케이터는 JS로 동적으로 생성 -->
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
