@@ -1,20 +1,23 @@
-<div class="slider-container">
-    <button class="arrow left-arrow">&#8249;</button>
-    <div class="slider" id="slider">
-        <!-- JavaScript가 여기에서 이미지들을 자동으로 추가할 것입니다 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 슬라이더</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider">
+      <button class="prev">&lt;</button>
+      <!-- JavaScript로 이미지가 동적으로 추가됩니다 -->
+      <button class="next">&gt;</button>
     </div>
-    <button class="arrow right-arrow">&#8250;</button>
-</div>
+    <div class="indicator-container">
+      <!-- 인디케이터는 JavaScript로 동적으로 추가됩니다 -->
+    </div>
+  </div>
 
-<script>
-    const slider = document.getElementById('slider');
-
-    // 365장 이미지 추가
-    for (let i = 1; i <= 365; i++) {
-        const img = document.createElement('img');
-        img.classList.add('slide');
-        img.src = `images/${i}.jpg`;  // 이미지는 images/1.jpg, images/2.jpg 형식으로 불러옵니다.
-        img.alt = `Image ${i}`;
-        slider.appendChild(img);
-    }
-</script>
+  <script src="script.js"></script>
+</body>
+</html>
