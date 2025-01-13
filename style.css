@@ -24,6 +24,7 @@ body {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: contain; /* 비율을 유지하며 크기를 조정 */
 }
 
 button {
