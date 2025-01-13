@@ -69,11 +69,6 @@ button {
   background-color: black;
 }
 
-.slider-container .prev,
-.slider-container .next {
-  font-size: 30px;
-}
-
 @media screen and (max-width: 768px) {
   .slider-container {
     width: 100%;
