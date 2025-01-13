@@ -1,53 +1,69 @@
-// 슬라이더 이미지와 인디케이터 생성
 const totalImages = 365;
 const slider = document.querySelector('.slider');
 const indicatorContainer = document.querySelector('.indicator-container');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-
 let currentIndex = 0;
 
-// 이미지와 인디케이터를 동적으로 생성하는 함수
-const generateImagesAndIndicators = () => {
-  for (let i = 1; i <= totalImages; i++) {
-    // 이미지 생성
-    const img = document.createElement('img');
-    img.src = `images/${i}.jpg`;
-    img.alt = `이미지 ${i}`;
-    slider.appendChild(img);
+// 이미지 불러오기
+for (let i = 1; i <= totalImages; i++) {
+  const img = document.createElement('img');
+  img.src = `images/image${i}.jpg`;
+  img.alt = `Image ${i}`;
+  slider.appendChild(img);
+}
 
-    // 인디케이터 생성
-    const indicator = document.createElement('div');
-    indicator.classList.add('indicator');
-    if (i === 1) {
-      indicator.classList.add('active');
-    }
-    indicatorContainer.appendChild(indicator);
+// 슬라이드 이미지 이동
+function moveToSlide(index) {
+  const slides = document.querySelectorAll('.slider img');
+  if (index < 0) {
+    currentIndex = totalImages - 1;
+  } else if (index >= totalImages) {
+    currentIndex = 0;
+  } else {
+    currentIndex = index;
   }
-};
-
-// 슬라이더 업데이트 함수
-const updateSlider = () => {
+  
   const offset = -currentIndex * 100;
   slider.style.transform = `translateX(${offset}%)`;
 
-  // 인디케이터 업데이트
+  slides.forEach((slide, idx) => {
+    slide.classList.remove('active');
+    if (idx === currentIndex) {
+      slide.classList.add('active');
+    }
+  });
+
+  updateIndicators();
+}
+
+// 좌우 화살표 클릭 이벤트
+document.querySelector('.prev').addEventListener('click', () => {
+  moveToSlide(currentIndex - 1);
+});
+
+document.querySelector('.next').addEventListener('click', () => {
+  moveToSlide(currentIndex + 1);
+});
+
+// 인디케이터 클릭 이벤트
+function createIndicators() {
+  for (let i = 0; i < totalImages; i++) {
+    const indicator = document.createElement('div');
+    indicator.classList.add('indicator');
+    indicator.addEventListener('click', () => moveToSlide(i));
+    indicatorContainer.appendChild(indicator);
+  }
+}
+
+function updateIndicators() {
   const indicators = document.querySelectorAll('.indicator');
-  indicators.forEach(indicator => indicator.classList.remove('active'));
-  indicators[currentIndex].classList.add('active');
-};
+  indicators.forEach((indicator, idx) => {
+    if (idx === currentIndex) {
+      indicator.classList.add('active');
+    } else {
+      indicator.classList.remove('active');
+    }
+  });
+}
 
-// 화살표 버튼 클릭 이벤트
-prevButton.addEventListener('click', () => {
-  currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
-  updateSlider();
-});
-
-nextButton.addEventListener('click', () => {
-  currentIndex = (currentIndex === totalImages - 1) ? 0 : currentIndex + 1;
-  updateSlider();
-});
-
-// 처음에 이미지와 인디케이터 생성하고 슬라이더 업데이트
-generateImagesAndIndicators();
-updateSlider();
+createIndicators();
+moveToSlide(currentIndex);
