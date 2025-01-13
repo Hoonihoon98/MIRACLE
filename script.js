@@ -1,6 +1,5 @@
 let currentIndex = 1;  // 초기 이미지 번호
 const totalImages = 365; // 총 이미지 개수
-const slideImage = document.getElementById('slide-image');
 
 // 이전 버튼 클릭 시 이미지 변경
 document.querySelector('.prev').addEventListener('click', () => {
@@ -24,5 +23,6 @@ document.querySelector('.next').addEventListener('click', () => {
 
 // 이미지 업데이트 함수
 function updateImage() {
-    slideImage.src = `images/${currentIndex}.jpg`;
+    const slideImage = document.getElementById('slide-image');
+    slideImage.src = `images/${currentIndex}.jpg`; // 이미지 변경
 }
