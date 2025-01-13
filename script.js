@@ -1,45 +1,31 @@
-// 이미지 파일 배열 생성
-const images = [];
-const totalImages = 365; // 총 이미지 수
+let images = [];
+let totalImages = 365; // 총 이미지 수
 
-// 1번부터 365번까지의 이미지 파일을 배열에 추가
+// 이미지 파일 경로 설정 (miracle (1).jpg 부터 miracle (365).jpg까지)
 for (let i = 1; i <= totalImages; i++) {
-    images.push(`images/miracle (${i}).jpg`);  // 이미지 파일 경로 패턴 (괄호와 공백 포함)
+    images.push(`images/miracle (${i}).jpg`); // miracle (i).jpg 형식으로 이미지 배열에 추가
 }
 
-let currentIndex = 0; // 현재 보여주는 이미지의 인덱스
+let currentIndex = 0; // 현재 표시된 이미지의 인덱스
+const sliderImage = document.getElementById("sliderImage");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-// 슬라이더 요소
-const slider = document.querySelector('.slider');
+// 초기 이미지 설정
+sliderImage.src = images[currentIndex];
 
-// 이미지 슬라이더 동적으로 추가
-function updateSlider() {
-    // 슬라이더 내용 초기화
-    slider.innerHTML = '';
-
-    // 현재 인덱스에서 5개의 이미지를 보여줄 예시
-    for (let i = currentIndex; i < currentIndex + 5 && i < images.length; i++) {
-        const img = document.createElement('img');
-        img.src = images[i];
-        slider.appendChild(img);
-    }
+// 이전 이미지로 이동하는 함수
+function showPreviousImage() {
+    currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+    sliderImage.src = images[currentIndex];
 }
 
-// 좌측 화살표 클릭 시 동작
-document.getElementById('prev').addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-    }
-    updateSlider();
-});
+// 다음 이미지로 이동하는 함수
+function showNextImage() {
+    currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+    sliderImage.src = images[currentIndex];
+}
 
-// 우측 화살표 클릭 시 동작
-document.getElementById('next').addEventListener('click', () => {
-    if (currentIndex + 5 < images.length) {
-        currentIndex++;
-    }
-    updateSlider();
-});
-
-// 첫 번째 슬라이드를 초기화
-updateSlider();
+// 버튼 클릭 이벤트 설정
+prevBtn.addEventListener("click", showPreviousImage);
+nextBtn.addEventListener("click", showNextImage);
