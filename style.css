@@ -25,13 +25,13 @@ html, body {
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5개의 이미지를 가로로 나열 */
+    grid-template-columns: repeat(10, 1fr); /* 10개의 이미지를 가로로 나열 */
     gap: 10px; /* 이미지 간 간격 */
     justify-items: center;
 }
 
 .image-grid img {
-    width: 100%;
-    max-width: 50px;
+    width: 50%;
+    max-width: 100px;
     height: auto;
 }
