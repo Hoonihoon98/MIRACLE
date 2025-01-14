@@ -1,8 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.slide');
-    const slideIndicator = document.querySelector('.slide-indicator');
-    const totalSlides = slides.length;
+    const sliderImages = document.getElementById('slider-images');
+    const slideIndicator = document.getElementById('slide-indicator');
+    const totalSlides = 365;
     let currentIndex = 0;
+
+    // 이미지 동적 추가
+    for (let i = 1; i <= totalSlides; i++) {
+        const img = document.createElement('img');
+        img.src = `images/${i}.jpg`;
+        img.alt = `Slide ${i}`;
+        img.className = 'slide';
+        sliderImages.appendChild(img);
+    }
+
+    const slides = document.querySelectorAll('.slide');
 
     const updateSlider = () => {
         slides.forEach((slide, index) => {
