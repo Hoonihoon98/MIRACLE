@@ -1,58 +1,63 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .slider-container {
-    position: relative;
-    width: 80%;  /* 전체 슬라이더 크기 */
-    max-width: 1200px;
-    text-align: center;
+  position: relative;
+  width: 80%; /* 전체 슬라이더 크기 */
+  max-width: 1200px;
+  text-align: center;
+  overflow: hidden;
 }
 
 .slider {
-    width: 100%;
-    overflow: hidden; /* 이미지가 넘치지 않도록 */
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slider img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 33.33%;  /* 한 화면에 3개의 이미지 */
+  height: auto;
+  display: block;
 }
 
 button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: none;  /* 배경을 none으로 설정하여 기본 배경 제거 */
-    border: none;
+    background-color: white;
+    border-radius: 50%;
+    border: 5px solid #888; /* 라인 두께 증가 */
+    width: 60px; /* 버튼 크기 키움 */
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    padding: 20px;  /* 화살표 크기 조정 */
-    z-index: 10;  /* 버튼이 이미지보다 위에 있도록 설정 */
-    width: 40px;  /* 화살표 크기 */
-    height: 40px;  /* 화살표 크기 */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 버튼에 그림자 추가 */
+}
+
+button:hover {
+    background-color: #f0f0f0; /* 호버 시 배경색 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* 호버 시 그림자 크기 증가 */
+}
+
+button .arrow {
+    font-size: 36px; /* 화살표 크기 두 배로 키움 */
+    color: #888;
 }
 
 .prev {
-    left: -50px;  /* 왼쪽 화살표를 이미지 밖으로 뺀다 */
-    background-image: url('left-arrow.png');  /* 왼쪽 화살표 이미지 */
-    background-size: 40px 40px;  /* 이미지 크기 */
-    background-repeat: no-repeat;
-    width: 40px;
-    height: 40px;
+    left: -80px;  /* 화살표를 이미지에서 더 멀리 위치시킴 */
 }
 
 .next {
-    right: -50px;  /* 오른쪽 화살표를 이미지 밖으로 뺀다 */
-    background-image: url('right-arrow.png');  /* 오른쪽 화살표 이미지 */
-    background-size: 40px 40px;  /* 이미지 크기 */
-    background-repeat: no-repeat;
-    width: 40px;
-    height: 40px;
+    right: -80px;  /* 화살표를 이미지에서 더 멀리 위치시킴 */
 }
