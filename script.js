@@ -1,12 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const sliderImages = document.querySelector('.slider-images');
-    const slides = document.querySelectorAll('.slider-images img');
+    const slides = document.querySelectorAll('.slide');
     const slideIndicator = document.querySelector('.slide-indicator');
     const totalSlides = slides.length;
     let currentIndex = 0;
 
     const updateSlider = () => {
-        sliderImages.style.transform = `translateX(-${currentIndex * 800}px)`;
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            if (index === currentIndex) {
+                slide.classList.add('active');
+            }
+        });
         slideIndicator.textContent = `${currentIndex + 1}/${totalSlides}`;
     };
 
