@@ -1,3 +1,4 @@
+/* 기본 스타일 */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -9,6 +10,14 @@ body {
     background-color: #f0f0f0; /* 배경색 설정 */
 }
 
+/* 배너 스타일 */
+.banner {
+    width: 800px;
+    height: 393px;
+    margin-bottom: 20px; /* 배너 아래 여백 */
+}
+
+/* 슬라이더 스타일 */
 .slider {
     position: relative;
     width: 800px;
