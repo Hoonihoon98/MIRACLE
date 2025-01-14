@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
         slideIndicator.textContent = `${currentIndex + 1}/${totalSlides}`;
     };
 
-    document.querySelector('.arrow-left').addEventListener('click', () => {
+    document.getElementById('arrow-left').addEventListener('click', () => {
         currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
         updateSlider();
     });
 
-    document.querySelector('.arrow-right').addEventListener('click', () => {
+    document.getElementById('arrow-right').addEventListener('click', () => {
         currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
         updateSlider();
     });
