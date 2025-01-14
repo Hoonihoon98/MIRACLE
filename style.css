@@ -1,9 +1,5 @@
-html, body {
-    background-color: #3dd7e4;  /* 배경색 적용 */
-    font-family: Arial, sans-serif;  /* 폰트 설정 */
-    padding: 20px;  /* 여백 설정 */
-    height: 100%;  /* 전체 높이 설정 */
-    margin: 0;  /* 기본 마진 제거 */
+.container {
+    background-color: #3dd7e4;
 }
 
 
