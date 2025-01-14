@@ -12,13 +12,9 @@
 
     <!-- Slider -->
     <div class="slider">
-        <div class="slider-images">
+        <div class="slider-images" id="slider-images">
             <!-- 이미지 슬라이드에 365개의 이미지 추가 -->
-            <script>
-                for (let i = 1; i <= 365; i++) {
-                    document.write(`<img src="images/${i}.jpg" alt="Slide ${i}" class="slide">`);
-                }
-            </script>
+            <!-- JavaScript로 동적으로 추가 -->
         </div>
         <!-- Navigation Arrows -->
         <div class="arrow arrow-left">
@@ -28,7 +24,7 @@
             <img src="images/arrow_right.png" alt="Right Arrow">
         </div>
         <!-- Slide Indicator -->
-        <div class="slide-indicator">1/365</div>
+        <div class="slide-indicator" id="slide-indicator">1/365</div>
     </div>
 
     <script src="scripts.js"></script>
