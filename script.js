@@ -1,7 +1,4 @@
-console.log('JavaScript 로드됨');
-
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM 콘텐츠 로드 완료');
     const sliderImages = document.getElementById('slider-images');
     const slideIndicator = document.getElementById('slide-indicator');
     const totalSlides = 365;
@@ -10,38 +7,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // 이미지 동적 추가
     for (let i = 1; i <= totalSlides; i++) {
         const img = document.createElement('img');
-        img.src = `images/${i}.jpg`;
+        img.src = `images/${i}.jpg`; // 이미지 경로 설정
         img.alt = `Slide ${i}`;
-        img.className = 'slide';
         sliderImages.appendChild(img);
     }
 
-    const slides = document.querySelectorAll('.slide');
-    console.log('슬라이드 수:', slides.length);
-
     const updateSlider = () => {
-        slides.forEach((slide, index) => {
-            slide.classList.remove('active');
-            if (index === currentIndex) {
-                slide.classList.add('active');
-            }
-        });
+        sliderImages.style.transform = `translateX(-${currentIndex * 800}px)`;
         slideIndicator.textContent = `${currentIndex + 1}/${totalSlides}`;
     };
 
     document.getElementById('arrow-left').addEventListener('click', () => {
-        console.log('왼쪽 화살표 클릭됨');
         currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
         updateSlider();
     });
 
     document.getElementById('arrow-right').addEventListener('click', () => {
-        console.log('오른쪽 화살표 클릭됨');
         currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
         updateSlider();
     });
 
     // 슬라이더 초기화
     updateSlider();
-    console.log('슬라이더 초기화 완료');
 });
