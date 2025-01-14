@@ -9,18 +9,6 @@ body {
     background-color: #a8e4ff;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 0;
-    width: 100%;
-    text-align: center;
-}
-
-main {
-    text-align: center;
-}
-
 .banner {
     width: 800px;
     height: 393px;
@@ -42,31 +30,36 @@ main {
     transition: transform 0.5s ease-in-out;
 }
 
-.slider-images img {
-    width: 800px;
+.slide {
+    width: 200px;
     height: 400px;
     object-fit: cover;
+    opacity: 0.5;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.slide.active {
+    width: 400px;
+    opacity: 1;
+    transform: scale(1.2);
 }
 
 .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
     cursor: pointer;
-    background-size: contain;
-    background-repeat: no-repeat;
+    user-select: none;
 }
 
 .arrow-left {
-    left: 0;
-    background-image: url('images/arrow_left.png');
+    left: 10px;
 }
 
 .arrow-right {
-    right: 0;
-    background-image: url('images/arrow_right.png');
+    right: 10px;
 }
 
 .slide-indicator {
