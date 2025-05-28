@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const imageGrid = document.getElementById('image-grid');
-    const totalImages = 472;
+    const totalImages = 500;
 
     // 이미지 동적 추가
     for (let i = 1; i <= totalImages; i++) {
